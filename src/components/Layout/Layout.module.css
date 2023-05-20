@@ -1,0 +1,16 @@
+.nav {
+  background-color: #0f5496;
+  padding: 20px;
+  font-size: larger;
+  width: auto;
+}
+
+.nav :hover {
+  color: rgba(66, 247, 12, 0.986);
+}
+
+.item {
+  font-size: 25px;
+  color: antiquewhite;
+  text-decoration: none;
+}
