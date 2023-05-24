@@ -1,0 +1,22 @@
+import { NavLink } from "react-router-dom";
+import s from "./Layout.module.css";
+
+// const activeMenu = ({ isActive }) => (isActive ? "activeMenu" : "");
+
+const Layout = () => {
+  return (
+    <div className={s.nav}>
+      <div>
+        <NavLink to={"/"} className={s.item}>
+          About
+        </NavLink>
+      </div>
+      <div className={s.item}>
+        <NavLink to={"/posts"} className={s.item}>
+          Posts
+        </NavLink>
+      </div>
+    </div>
+  );
+};
+export default Layout;

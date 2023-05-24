@@ -1,0 +1,20 @@
+.header {
+  grid-area: h;
+  background-color: rgb(134, 22, 125);
+  display: flex;
+}
+.header img {
+  width: 50px;
+  border-radius: 15px;
+  margin: 5px 5px;
+}
+h1 {
+  text-align: center;
+  color: white;
+}
+h1:hover {
+  color: rgb(64, 253, 17);
+}
+.head {
+  text-decoration: none;
+}
