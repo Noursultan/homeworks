@@ -10,7 +10,7 @@ const todoReducer = (state=initialState, action) => {
             todos: [...state.todos, action.payload]}
     }
     else if (action.type == 'REMOVE_TODO') {
-        return state
+        return {...state, todos: state.todos.filter(todo => todo !== action.payload)}
     }
     else if (action.type == 'SET_TODOS') {
         return {...state, todos: action.payload}

@@ -42,10 +42,11 @@ const TodoList = () => {
                 {todos && 
                     <ul>
                         {todos.map(t => 
-                            <li key={t.id} onClick={() =>
-                                    clickDeleteTodo(t)
-                                }>
+                            <li key={t.id}>
                                 {t.title}
+                                <button onClick={() =>
+                                    clickDeleteTodo(t)
+                                }>delete</button>
                             </li>
                         )}
                     </ul>
