@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: aqua;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+.product-container {
+  text-align: center;
+}
+
+.product-item {
+  padding: 1rem;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-evenly;
+}
