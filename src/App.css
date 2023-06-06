@@ -23,3 +23,8 @@ nav {
   display: flex;
   justify-content: space-evenly;
 }
+
+.cart-container {
+  position: absolute;
+  right: 1rem;
+}

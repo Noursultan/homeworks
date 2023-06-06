@@ -4,7 +4,7 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
 
   return (
-    <div>
+    <div className='cart-container'>
       <h2>Cart</h2>
       {cartItems.length === 0 ? (
         <p>No items in cart</p>
