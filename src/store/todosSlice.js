@@ -13,6 +13,21 @@ export const fetchTodos = createAsyncThunk(
 )
 
 
+export const asyncDeleteTodo = createAsyncThunk(
+    'todos/asyncDeleteTodo',
+    async (id) => {
+        return axios.delete(`https://dummyjson.com/todos/${id}`)
+            .then(resp => resp.data)
+    }
+)
+
+export const asyncCreateTodo = createAsyncThunk(
+    'todos/asyncCreateTodo',
+    async ({todo, completed, userId}) => {
+
+    }
+)
+
 const todosSlice = createSlice({
     name: 'todos',
     initialState: {
@@ -51,6 +66,15 @@ const todosSlice = createSlice({
             state.loading = false
             state.error = action.error.message
         })
+        builder.addCase(asyncDeleteTodo.fulfilled, (state, action) => {
+            const ind = state.items.findIndex(
+                todo => todo.id === action.payload.id
+            )
+            if (ind > -1) {
+                state.items.splice(ind, 1)
+            }
+        })
+
     }
 })
 
