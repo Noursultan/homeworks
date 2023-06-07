@@ -1,16 +1,24 @@
 import {useDispatch, useSelector} from 'react-redux'
-import { useState } from 'react'
-import { addTodo, removeTodo } from './store/todosSlice'
+import { useEffect, useState } from 'react'
+import { addTodo, removeTodo, fetchTodos } from './store/todosSlice'
 
 
 const TodoList = () => {
     const [val, setVal] = useState('')
     const dispatch = useDispatch()
-    const {items} = useSelector(state => state.todos)
+    const {items, loading, error} = useSelector(state => state.todos)
+
+    useEffect(() => {
+        dispatch(fetchTodos())
+    }, [dispatch])
 
     const onButtonClick = () => {
         dispatch(addTodo(val))
     }
+
+    if (error !== '') return <h5>Извините, произошла ошибка {error}</h5>
+    if (loading) return <h5>Подождите</h5>
+
 
     return   (
         <div><h3>TodoList</h3>
@@ -21,7 +29,7 @@ const TodoList = () => {
             {items && 
                 <ul>
                     {items.map(item => 
-                        <li>{item.title} 
+                        <li>{item.todo} 
                             <button 
                                 onClick={
                                     () => dispatch(removeTodo(item.id))
