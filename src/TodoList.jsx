@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect, useState } from 'react'
-import { addTodo, asyncDeleteTodo, fetchTodos } from './store/todosSlice'
+import { asyncDeleteTodo, asyncCreateTodo, fetchTodos } from './store/todosSlice'
+import { nanoid } from '@reduxjs/toolkit'
 
 
 const TodoList = () => {
@@ -13,7 +14,7 @@ const TodoList = () => {
     }, [dispatch])
 
     const onButtonClick = () => {
-        dispatch(addTodo(val))
+        dispatch(asyncCreateTodo({ todo: val, completed: false, id: nanoid() }))
     }
 
     if (error !== '') return <h5>Извините, произошла ошибка {error}</h5>
@@ -29,12 +30,12 @@ const TodoList = () => {
             {items && 
                 <ul>
                     {items.map(item => 
-                        <li>{item.todo} 
+                        <li key={item.id}>{item.todo} 
                             <button 
                                 onClick={
                                     () => dispatch(asyncDeleteTodo(item.id))
                                 }
-                            >&#9842;</button>
+                            >delete</button>
                         </li>
                     )}
                 </ul>

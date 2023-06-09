@@ -23,8 +23,20 @@ export const asyncDeleteTodo = createAsyncThunk(
 
 export const asyncCreateTodo = createAsyncThunk(
     'todos/asyncCreateTodo',
-    async ({todo, completed, userId}) => {
+    async ({todo, completed, id}) => {
+        const newTodo = {
+            todo,
+            completed, 
+            id
+        }
 
+        try {
+            const response = await axios.post('https://dummyjson.com/todos/add', newTodo)
+            return response.data
+        } catch(error) {
+            console.error('Error happened in todo creating', error)
+            throw error;
+        }
     }
 )
 
@@ -73,6 +85,10 @@ const todosSlice = createSlice({
             if (ind > -1) {
                 state.items.splice(ind, 1)
             }
+        }),
+        builder.addCase(asyncCreateTodo.fulfilled, (state, action) => {
+            const newTodo = action.payload;
+            state.items.push(newTodo)
         })
 
     }
