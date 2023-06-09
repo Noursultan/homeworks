@@ -1,6 +1,6 @@
 .header {
   grid-area: h;
-  background-color: rgb(134, 22, 125);
+  background-color: rgb(22, 134, 78);
   display: flex;
 }
 .header img {
@@ -11,6 +11,7 @@
 h1 {
   text-align: center;
   color: white;
+  padding-left: 1rem;
 }
 h1:hover {
   color: rgb(64, 253, 17);

@@ -16,7 +16,6 @@ const Layout = () => {
           Posts
         </NavLink>
       </div>
-
       <Outlet />
     </div>
   );
