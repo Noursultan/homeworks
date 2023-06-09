@@ -31,7 +31,7 @@ const SinglePost = ({ addNewPost, postId }) => {
   return (
     <div className={s.container}>
       <form onSubmit={handleSubmit} className={s.form}>
-        <label className={s.label}>Add new post</label>
+        <label className={s.label}>Add a new post</label>
         <input
           className={s.input}
           placeholder="Your post:"
