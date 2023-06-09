@@ -13,7 +13,7 @@ const Header = () => {
       </Link>
 
       <Link to={"/"} className={s.head}>
-        <h1>JSON PLACEHOLDER</h1>
+        <h1>HEADER</h1>
       </Link>
     </div>
   );

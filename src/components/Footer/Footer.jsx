@@ -4,7 +4,7 @@ import s from "./Footer.module.css";
 const Footer = () => {
   return (
     <div className={s.footer}>
-      <h3>Designed by Me</h3>
+      <h3>Footer</h3>
     </div>
   );
 };
